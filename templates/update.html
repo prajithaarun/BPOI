@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="{% url 'home:update' ob.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="name" value="{{ob.name}}">
+    <input type="text" name="mark" value="{{ob.mark}}">
+    <input type="text" name="subject" value="{{ob.subject}}">
+    <input type="submit" value="submit" >
+
+</form>
+
+
+</body>
+</html>
