@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from hr.views import subscribe
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/',include('django.contrib.auth.urls')),
     path('home/',include('home.urls')),
     path('hr/', include('hr.urls')),
     path('restapi/', include('restapi.urls')),
+    path('user/',include('user.urls')),
+    path('',subscribe,name='subscribe'),
+    #path('geolocation/',include('geolocation.urls')),
+
+
 
 ]

@@ -1,4 +1,6 @@
+from django.core.mail import send_mail
 from django.shortcuts import render, HttpResponse, redirect
+from athena import settings
 from .models import student
 from .form import studentform
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -32,6 +34,11 @@ def display(request):
         users = paginator.page(paginator.num_pages)
 
     return render(request, 'pagination.html', { 'users': users})
+
+
+
+
+
 # def display(request):
 #     obj = student.objects.all()
 #     # p = Paginator(obj, 4)
@@ -60,3 +67,4 @@ def update(request, pk):
         s = request.POST['subject']
     student.objects.filter(id=pk).update(name=h, mark=p, subject=s)
     return redirect('home:display')
+
